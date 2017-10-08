@@ -51,14 +51,15 @@ Check with `python -V`
 ## Installing or Upgrading Node-Red on Raspberry Pi
 Perform a removal and update:  
 `bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)`  
-To autostart on boot `sudo systemctl enable nodered.service`  
+To autostart on boot `sudo systemctl enable nodered.service` you can find NodeRed at port 1880.  
 ## Installing an MQTT server
 ```
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
-sudo apt-get install mosquitto mosquitto-clients python-mosquitto
-```
+sudo apt-get install mosquitto mosquitto-clients
+```  
+Then `pip install paho-mqtt`  
 If you want to configure the server:  
 Server runs on port: 1883  
 You can publish via the command line:  
