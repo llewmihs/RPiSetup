@@ -26,6 +26,9 @@ The best place to find the IP of your Pi is by logging into your router and find
 ### Changing the password  
 Better safe than sorry, change your password using:  
 `passwd`  
+### Update and upgrade
+`sudo apt-get update`  
+`sudo apt-get upgrade`  
 ### Set a static IP address  
 Should you wish, from the terminal open the following:  
 `sudo nano /etc/dhcpcd.conf`  
@@ -38,5 +41,43 @@ static domain_name_servers=192.168.0.1
 ```  
 This line: `static ip_address=192.168.0.200/24` is your new IP, always leave the `24`, change the `200` to suit your needs/network.  
 ## Changing the Hostname  
-`sudo nano /etc/hosts` - replace `raspberrypi` with your desired hostname  
-and `sudo nano /etc/hostname` - replace `raspberrypi` with same hostname. Then reboot.
+`sudo nano /etc/hosts` - replace `raspberrypi` with your desired hostname.  
+Then `sudo nano /etc/hostname` - replace `raspberrypi` with same hostname. Then reboot.
+## Setting Python3 as the default editor
+edit `sudo nano ~/.bashrc file`    
+add `alias python=python3`    
+Save then update `source ~/.bashrc`  
+Check with `python -V`  
+## Installing or Upgrading Node-Red on Raspberry Pi
+Perform a removal and update:  
+`bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)`  
+To autostart on boot `sudo systemctl enable nodered.service`  
+## Installing an MQTT server
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get install mosquitto mosquitto-clients python-mosquitto
+```
+If you want to configure the server:  
+Server runs on port: 1883  
+You can publish via the command line:  
+Publish temperature information to localhost with QoS 1:  
+`mosquitto_pub -t sensors/temperature -m 32 -q 1`  
+You can subscribe via:  
+Subscribe to temperature information on localhost with QoS 1:  
+`mosquitto_sub -t sensors/temperature -q 1`  
+In either case, they will default to localhost with port 1883. This can be changed with:   
+`-h (insert IP after)`  
+`-p (insert port after)`  
+## Installing OpenVPN (via commandline)  
+`apt-get install openvpn` Then: `sudo wget -O /etc/openvpn/btguard.ca.crt http://btguard.com/btguard.ca.crt`  
+Next: `sudo wget -O /etc/openvpn/btguard.conf http://btguard.com/btguard.conf`  
+Add: `pass.txt` to `/etc/openvpn/btguard.conf`  
+Add username and password to pass.txt in the same folder as btguard.conf  
+To autostart:  
+`sudo nano /etc/default/openvpn`  
+Uncomment `#AUTOSTART="all"`  
+
+
+
