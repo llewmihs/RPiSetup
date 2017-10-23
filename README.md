@@ -26,6 +26,8 @@ The best place to find the IP of your Pi is by logging into your router and find
 ### Changing the password  
 Better safe than sorry, change your password using:  
 `passwd`  
+### Remove some bloat
+`sudo apt-get purge wolfram-engine`  
 ### Update and upgrade
 `sudo apt-get update`  
 `sudo apt-get upgrade`  
@@ -95,5 +97,11 @@ Framebuffer_height=320
 Sdtv_mode=2
 Sdtv_aspect=2
 ```
+## Installing VSCode
+`wget https://code.headmelted.com/installers/apt.sh`
+
+`chmod +x apt.sh`
+
+`sudo ./apt.sh`
 
 
