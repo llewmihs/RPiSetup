@@ -78,7 +78,22 @@ Add: `pass.txt` to `/etc/openvpn/btguard.conf`
 Add username and password to pass.txt in the same folder as btguard.conf  
 To autostart:  
 `sudo nano /etc/default/openvpn`  
-Uncomment `#AUTOSTART="all"`  
+Uncomment `#AUTOSTART="all"`
+## Setting the screen resolution
+edit the file `/booot/config.txt`
+uncomment `disable overscan=1`
 
+```
+overscan_left=24
+overscan_right=24
+Overscan_top=10
+Overscan_bottom=24
+
+Framebuffer_width=480
+Framebuffer_height=320
+
+Sdtv_mode=2
+Sdtv_aspect=2
+```
 
 
