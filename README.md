@@ -104,4 +104,9 @@ Sdtv_aspect=2
 
 `sudo ./apt.sh`
 
+## Installing Node-Red
+`bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)`
+Then to autostart:  
+`sudo systemctl enable nodered.service`
+
 
