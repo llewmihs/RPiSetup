@@ -50,10 +50,7 @@ edit `sudo nano ~/.bashrc file`
 add `alias python=python3`    
 Save then update `source ~/.bashrc`  
 Check with `python -V`  
-## Installing or Upgrading Node-Red on Raspberry Pi
-Perform a removal and update:  
-`bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)`  
-To autostart on boot `sudo systemctl enable nodered.service` you can find NodeRed at port 1880.  
+
 ## Installing an MQTT server
 ```
 sudo apt-get update
@@ -105,7 +102,7 @@ Sdtv_aspect=2
 `sudo ./apt.sh`
 
 ## Installing Node-Red
-`bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)`
+`bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)`  
 Then to autostart:  
 `sudo systemctl enable nodered.service`
 
