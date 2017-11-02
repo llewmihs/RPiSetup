@@ -106,4 +106,9 @@ Sdtv_aspect=2
 Then to autostart:  
 `sudo systemctl enable nodered.service`
 
+## If you want to use a Zero W OTG
+Add `dtoverlay=dwc2` to `config.txt`.  
+And:  
+Add `modules-load=dwc2,g_ether` to `cmdline.txt` after `rootwait`
+
 
